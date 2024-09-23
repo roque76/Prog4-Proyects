@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller1</title>
+    <style>
+        table {
+          width: 50%;
+          border-collapse: collapse;
+        }
+        
+        table, th, td {
+          border: 1px solid rgb(0, 0, 0);
+        }
+        
+        th, td {
+          padding: 10px;
+          text-align: left;
+        }
+        </style>
+
+        <script src="formulario.js"></script>
+
+</head>
+<body>
+    <h1>Taller1</h1>
+    <br>
+    <h2>Formulario</h2>
+    <form id="form">
+    <table  style="margin-bottom: 15px;">
+    <tr>
+        <td><input type="text" id="Name" placeholder="Ingresa tu nombre" required></td>
+        <td><input type="text" id="CC" placeholder="Ingresa tu cedula" required></td>
+        <td><input type="number" id="Age" min ="0" max ="100"placeholder="Ingresa tu edad" required></td>
+    </tr>
+    <tr>
+        <td><input type="text" id="Mobile" placeholder="Ingresa tu numero de telefono movil" required></td>
+        <td><input type="email" id="Email" placeholder="Ingresa tu email" required></td>
+        <td><label for="opciones">Selecciona una ciudad:</label>
+            <select id="city" required>
+                <option value="" disabled selected></option>
+                <option value="Manizales">Manizales</option>
+                <option value="Pereira">Pereira</option>
+                <option value="Medellin">Medellin</option>
+                <option value="Cali">Cali</option>
+            </select>
+        </td>
+    </tr>
+   <tr>
+    <td><label for="opciones">Selecciona un Departamento:</label>
+        <select id="department" required>
+            <option value="" disabled selected></option>
+            <option value="Caldas">Caldas</option>
+            <option value="Risaralda">Risaralda</option>
+            <option value="Huila">Huila</option>
+            <option value="Putumayo">Putumayo</option>
+        </select>
+    </td>
+    <td><input type="date" id="Born_date" placeholder="Ingresa tu fecha de nacimiento"required></td>
+    <td><input type="file" id="Foto" placeholder="Ingresa una  foto" required></td>
+   </tr>
+   
+   <tr>
+        <td><button type="button" onclick="addRow()">Terminar</button></td>
+        <td><button type="button" onclick="rechargeTable()">Recargar</button></td>
+        <td> <p id="error" class="error"></td>
+   </tr>
+    
+   </table>
+    </form>
+    <br>
+    <h2>Resultados</h2>
+    <table id="users">
+        <thead>
+            <td>Name</td>
+            <td>CC</td>
+            <td>Age</td>
+            <td>Mobile number</td>
+            <td>Email</td>
+            <td>City</td>
+            <td>Department</td>
+            <td>Born date</td>
+            <td>Foto</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <br>
+
+    <h2>MENU</h2>
+    <table>
+        <tr>
+            <td><label>Actualizar usuario</label></td>
+            <td><input type="text" placeholder="Ingrese CC" id="ccUpdate"></td>
+            <td><button type="button" onclick="searchCC(document.getElementById('ccUpdate').value)".value">Buscar</button></td>
+        </tr>
+        <tr>
+            <td><label>Eliminar usuario</label></td>
+            <td>
+                <input type="text" placeholder="Ingrese CC" id="ccDelete">
+                <br>
+                <input type="text" placeholder="Ingrese un nombre" id="nameDelete">
+            </td>
+            <td>
+                <button type="button" onclick="searchCC(document.getElementById('ccDelete').value)">Buscar por cedula</button>
+                <button type="button" onclick="searchName(document.getElementById('nameDelete').value)">Buscar por nombre</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Filtrar usuarios</label></td>
+            <td>  <select id="cityMenu" required>
+                <option value="" disabled selected></option>
+                <option value="Manizales">Manizales</option>
+                <option value="Pereira">Pereira</option>
+                <option value="Medellin">Medellin</option>
+                <option value="Cali">Cali</option>
+                </select>
+
+                <select id="departmentMenu" required>
+                    <option value="" disabled selected></option>
+                    <option value="Caldas">Caldas</option>
+                    <option value="Risaralda">Risaralda</option>
+                    <option value="Huila">Huila</option>
+                    <option value="Putumayo">Putumayo</option>
+                </select>
+            </td>
+            <td>
+                 <button type="button" onclick="searchCity(document.getElementById('cityMenu').value)">Buscar por ciudad</button>
+                 <button type="button" onclick="searchDepto(document.getElementById('departmentMenu').value)">Buscar por departamento</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
